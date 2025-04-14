@@ -139,3 +139,32 @@
         text-align: center;
     }
 }
+/* Fix for hamburger menu in index.html */
+.nav-menu {
+    background-color: var(--primary-light); /* White background */
+}
+
+/* Ensure the menu has proper styling when active */
+.nav-menu.active {
+    background-color: var(--primary-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: var(--primary-light);
+        padding: 20px;
+        transition: 0.3s;
+        overflow-y: auto;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+}

@@ -4,6 +4,9 @@
     --primary-black: #333333;
     --gold: #E5D4A1;
     --white: #FFFFFF;
+    --primary-dark: #1A1A1A;
+    --primary-light: #FFFFFF;
+    --accent-gold: #FFD700;
     --gray: #F5F5F5;
     --dark-bg: #1a1a1a;
     --dark-text: #FFFFFF;
@@ -489,6 +492,23 @@ body {
     padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.1);
     text-align: center;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-red);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold);
 }
 
 /* Animations */
