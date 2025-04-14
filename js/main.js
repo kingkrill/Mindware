@@ -32,23 +32,48 @@ const animateOnScroll = () => {
 
 window.addEventListener('scroll', animateOnScroll);
 
-const heroSwiper = new Swiper('.hero-swiper', {
-    slidesPerView: 1,
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
+// Initialize Hero Slider
+document.addEventListener('DOMContentLoaded', function() {
+    const heroSwiper = new Swiper('.hero-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.hero-swiper .swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.hero-swiper .swiper-button-next',
+            prevEl: '.hero-swiper .swiper-button-prev',
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+    });
+});
+// Debug slider images
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.swiper-slide');
+    console.log('Found ' + slides.length + ' slides');
+    
+    slides.forEach((slide, index) => {
+        const bgImage = slide.style.backgroundImage;
+        console.log('Slide ' + (index + 1) + ' background image: ' + bgImage);
+        
+        // Test if image loads
+        const imgUrl = bgImage.replace('url("', '').replace('")', '');
+        const img = new Image();
+        img.onload = function() {
+            console.log('Slide ' + (index + 1) + ' image loaded successfully');
+        };
+        img.onerror = function() {
+            console.error('Slide ' + (index + 1) + ' image failed to load: ' + imgUrl);
+        };
+        img.src = imgUrl;
+    });
 });
