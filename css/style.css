@@ -13,6 +13,10 @@
     --transition: all 0.3s ease;
 }
 
+/* Prevent horizontal scroll on mobile except events and lets-talk */
+body {
+    overflow-x: hidden;
+}
 
 /* Reset and Base Styles */
 * {
